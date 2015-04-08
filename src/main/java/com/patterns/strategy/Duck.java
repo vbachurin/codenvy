@@ -2,20 +2,33 @@ package com.patterns.strategy;
 
 public abstract class Duck {
   
-  Flyable flyable;
-  Quackable quackable;
+  FlyBehavior flyBehavior;
+  QuackBehavior quackBehavior;
   
   public Duck() {
-    
+    display();
   }
   
   public void swim() {
-    
+    System.out.println("All ducks float");
   }
   
-  public void display() {
-    
+  public abstract void display();
+  
+  public void performFly() {
+	  flyBehavior.fly();
   }
   
+  public void performQuack() {
+	  quackBehavior.quack();
+  }
+  
+  public void setFlyBehavior(FlyBehavior fb) {
+	  flyBehavior = fb;
+  }
+  
+  public void setQuackBehavior(QuackBehavior qb) {
+	  quackBehavior = qb;
+  }
   
 }

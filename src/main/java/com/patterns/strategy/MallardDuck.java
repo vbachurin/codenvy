@@ -1,12 +1,16 @@
 package com.patterns.strategy;
 
-public class MallardDuck extends Duck implements Flyable, Quackable {
+public class MallardDuck extends Duck {
+	
+	public MallardDuck() {
+		quackBehavior = new Quack();
+		flyBehavior = new FlyWithWings();
+	}
+
+	@Override
+	public void display() {
+		System.out.println("I am a real Mallard Duck!");
+	}
   
-  public void fly() {
-    
-  }
-  
-  public void quack() {
-    
-  }
+
 }
